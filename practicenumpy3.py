@@ -156,18 +156,16 @@ print ("\nElements at indices (0, 3), (1, 2), (2, 1),"
 									"(3, 0):\n", temp) 
 
 # boolean array indexing example 
-cond = arr > 0 # cond is a boolean array 
-temp = arr[cond] 
-print ("\nElements greater than 0:\n", temp) 
-print(arr)
+cond = arr > 0 # cond is a boolean array ,new array cond created
+temp = arr[cond]  # a new array is created
+
 print("below is the condition")
 print(cond)
+print ("\nElements greater than 0:\n", temp) 
+print(arr)
+
 """ 
-below is the value of cond array which is created
-[[False  True False  True]
- [ True False  True False]
- [ True False  True  True]
- [ True False  True  True]]
+
 
 Array with first 2 rows and alternatecolumns(0 and 2):
  [[-1.  0.]
@@ -175,9 +173,202 @@ Array with first 2 rows and alternatecolumns(0 and 2):
 
 Elements at indices (0, 3), (1, 2), (2, 1),(3, 0):
  [ 4.  6.  0.  3.]
+ 
+ below is the value of cond array which is created
+ below is the condition
+
+[[False  True False  True]
+ [ True False  True False]
+ [ True False  True  True]
+ [ True False  True  True]]
 
 Elements greater than 0:
  [ 2.   4.   4.   6.   2.6  7.   8.   3.   4.   2. ] """
+
+# Python program to demonstrate 
+# basic operations on single array 
+import numpy as np 
+
+a = np.array([1, 2, 5, 3]) 
+
+# add 1 to every element 
+print ("Adding 1 to every element:", a+1) 
+
+# subtract 3 from each element 
+print ("Subtracting 3 from each element:", a-3) 
+
+# multiply each element by 10 
+print ("Multiplying each element by 10:", a*10) 
+
+# square each element 
+print ("Squaring each element:", a**2) 
+
+# modify existing array 
+a *= 2
+print ("Doubled each element of original array:", a) 
+
+# transpose of array 
+a = np.array([[1, 2, 3], [3, 4, 5], [9, 6, 0]]) 
+
+print ("\nOriginal array:\n", a) 
+print ("Transpose of array:\n", a.T) 
+""" 
+Adding 1 to every element: [2 3 6 4]
+Subtracting 3 from each element: [-2 -1  2  0]
+Multiplying each element by 10: [10 20 50 30]
+Squaring each element: [ 1  4 25  9]
+Doubled each element of original array: [ 2  4 10  6]
+
+Original array:
+ [[1 2 3]
+  [3 4 5]
+  [9 6 0]]
+Transpose of array:
+ [[1 3 9]
+  [2 4 6]
+  [3 5 0]]
+ """
+
+# Python program to demonstrate 
+# unary operators in numpy 
+import numpy as np 
+
+arr = np.array([[1, 5, 6], 
+				[4, 7, 2], 
+				[3, 1, 9]]) 
+
+# maximum element of array 
+print ("Largest element is:", arr.max()) 
+print ("Row-wise maximum elements:", 
+					arr.max(axis = 1)) 
+
+# minimum element of array 
+print ("Column-wise minimum elements:", 
+						arr.min(axis = 0)) 
+
+# sum of array elements 
+print ("Sum of all array elements:", 
+							arr.sum()) 
+
+# cumulative sum along each row 
+print ("Cumulative sum along each row:\n", 
+						arr.cumsum(axis = 1)) 
+""" 
+Largest element is: 9
+Row-wise maximum elements: [6 7 9]
+Column-wise minimum elements: [1 1 2]
+Sum of all array elements: 38
+Cumulative sum along each row:
+[[ 1  6 12]
+ [ 4 11 13]
+ [ 3  4 13]] """
+#-------------------OPERATOR OVERLOADING VS FUNCTIONS------------
+# Python program to demonstrate 
+# binary operators in Numpy 
+import numpy as np 
+
+a = np.array([[1, 2], 
+			[3, 4]]) 
+b = np.array([[4, 3], 
+			[2, 1]]) 
+
+# add arrays 
+print ("Array sum:\n", a + b) 
+
+# multiply arrays (elementwise multiplication) 
+print ("Array multiplication:\n", a*b) 
+
+# matrix multiplication 
+print ("Matrix multiplication:\n", a.dot(b)) 
+
+""" 
+Array sum:
+[[5 5]
+ [5 5]]
+Array multiplication:
+[[4 6]
+ [6 4]]
+Matrix multiplication:
+[[ 8  5]
+ [20 13]] """
+
+# Python program to demonstrate 
+# universal functions in numpy 
+import numpy as np 
+
+# create an array of sine values 
+a = np.array([0, np.pi/2, np.pi]) 
+print ("Sine values of array elements:", np.sin(a)) 
+
+# exponential values 
+a = np.array([0, 1, 2, 3]) 
+print ("Exponent of array elements:", np.exp(a)) 
+
+# square root of array values 
+print ("Square root of array elements:", np.sqrt(a)) 
+""" 
+Sine values of array elements: 
+			[  0.00000000e+00   1.00000000e+00   1.22464680e-16]
+
+Exponent of array elements: 
+			[  1.           2.71828183   7.3890561   20.08553692]
+
+Square root of array elements:
+			[ 0.          1.          1.41421356  1.73205081] """
+
+
+# Python program to demonstrate sorting in numpy 
+
+a = np.array([[1, 4, 2], 
+				[3, 4, 6], 
+			[0, -1, 5]]) 
+
+# sorted array 
+print ("Array elements in sorted order:\n", 
+					np.sort(a, axis = None)) 
+
+# sort array row-wise 
+print ("Row-wise sorted array:\n", 
+				np.sort(a, axis = 1)) 
+
+# specify sort algorithm 
+print ("Column wise sort by applying merge-sort:\n", 
+			np.sort(a, axis = 0, kind = 'mergesort')) 
+
+# Example to show sorting of structured array 
+# set alias names for dtypes 
+dtypes = [('name', 'S10'), ('grad_year', int), ('cgpa', float)] 
+
+# Values to be put in array 
+values = [('Hrithik', 2009, 8.5), ('Ajay', 2008, 8.7), 
+		('Pankaj', 2008, 7.9), ('Aakash', 2009, 9.0)] 
+			
+# Creating array 
+arr = np.array(values, dtype = dtypes) 
+print ("\nArray sorted by names:\n", 
+			np.sort(arr, order = 'name')) 
+			
+print ("Array sorted by graduation year and then cgpa:\n", 
+				np.sort(arr, order = ['grad_year', 'cgpa'])) 
+""" 
+Array elements in sorted order:
+[-1  0  1  2  3  4  4  5  6]
+Row-wise sorted array:
+[[ 1  2  4]
+ [ 3  4  6]
+ [-1  0  5]]
+Column wise sort by applying merge-sort:
+[[ 0 -1  2]
+ [ 1  4  5]
+ [ 3  4  6]]
+
+Array sorted by names:
+[('Aakash', 2009, 9.0) ('Ajay', 2008, 8.7) ('Hrithik', 2009, 8.5)
+ ('Pankaj', 2008, 7.9)]
+Array sorted by graduation year and then cgpa:
+[('Pankaj', 2008, 7.9) ('Ajay', 2008, 8.7) ('Hrithik', 2009, 8.5)
+ ('Aakash', 2009, 9.0)] """
+
 
 
 
