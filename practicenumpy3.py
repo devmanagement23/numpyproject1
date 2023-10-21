@@ -351,7 +351,7 @@ print ("\nArray sorted by names:\n",
 print ("Array sorted by graduation year and then cgpa:\n", 
 				np.sort(arr, order = ['grad_year', 'cgpa'])) 
 """ 
-Array elements in sorted order:
+Array elements in sorted order, when axis = none :
 [-1  0  1  2  3  4  4  5  6]
 Row-wise sorted array:
 [[ 1  2  4]
@@ -369,10 +369,114 @@ Array sorted by graduation year and then cgpa:
 [('Pankaj', 2008, 7.9) ('Ajay', 2008, 8.7) ('Hrithik', 2009, 8.5)
  ('Aakash', 2009, 9.0)] """
 
+#--------------------------------------------------------
+#Create NumPy Array from a List
 
+li = [1,2,3,4]
+numpyArr = np.array(li)
 
+#or
 
+numpyArr = np.array([1,2,3,4])
 
+# in above The list is passed to the array() method which returns
+#  a NumPy array with the same elements
+#-------------------------
+
+li = [1, 2, 3, 4]
+numpyArr = np.array(li)
+
+print("li =", li, "and type(li) =", type(li))
+print("numpyArr =", numpyArr, "and type(numpyArr) =", type(numpyArr))
+""" 
+li = [1, 2, 3, 4] and type(li) = <class 'list'>
+numpyArr = [1 2 3 4] and type(numpyArr) = <class 'numpy.ndarray'> """
+
+#-----------------
+#Create NumPy Array from a Tuple
+
+tup = (1,2,3,4)
+numpyArr = np.array(tup)
+#OR
+numpyArr = np.array((1,2,3,4))
+
+print("tup =", tup, "and type(tup) =", type(tup))
+print("numpyArr =", numpyArr, "and type(numpyArr) =", type(numpyArr))
+""" 
+tup = (1, 2, 3, 4) and type(tup) = <class 'tuple'>
+numpyArr = [1 2 3 4] and type(numpyArr) = <class 'numpy.ndarray'> """
+
+# creating list 
+list_1 = [1, 2, 3, 4]
+list_2 = [5, 6, 7, 8]
+list_3 = [9, 10, 11, 12]
+ 
+# creating numpy array
+sample_array = np.array([list_1,
+                         list_2,
+                         list_3])
+ 
+print("Numpy array :")
+print(sample_array)
+ 
+# print shape of the array
+print("Shape of the array :",
+      sample_array.shape)
+""" 
+Numpy array : 
+[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]]
+Shape of the array :  (3, 4) """
+
+#---------------------
+# numpy.fromiter(): The fromiter() function create a new one-dimensional array 
+# from an iterable object.
+
+# iterable
+iterable = (a*a for a in range(8))
+print("thi si me :",iterable)
+
+for x in iterable:
+  print(x)
+
+arr2 = np.fromiter(iterable, float)
+
+print("fromiter() array :",arr2)
+""" 
+thi si me : <generator object <genexpr> at 0x0000026E50075D20>
+fromiter() array :  [ 0.  1.  4.  9. 16. 25. 36. 49.] 
+ """
+
+var = "Geekforgeeks"
+
+arr = np.fromiter(var, dtype = 'U2')
+
+print("fromiter() array :",	arr)
+
+#fromiter() array : ['G' 'e' 'e' 'k' 'f' 'o' 'r' 'g' 'e' 'e' 'k' 's']
+#-----------------
+
+#Syntax: numpy.arange(start,stop,step,dtype=None)
+
+np.arange(1, 20 , 2, dtype = np.float32)
+
+#array([ 1.,  3.,  5.,  7.,  9., 11., 13., 15., 17., 19.])
+
+#Syntax: numpy.ones(shape, dtype=None, order=’C’)
+np.ones([4, 3],dtype = np.int32, order = 'f')
+""" 
+array([[1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1]]) """
+
+np.zeros([4, 3],dtype = np.int32, order = 'f')
+""" 
+array([[0, 0, 0],
+       [0, 0, 0],
+       [0, 0, 0],
+       [0, 0, 0]]) """
 
 
 
