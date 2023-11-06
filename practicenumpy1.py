@@ -1,8 +1,28 @@
 import numpy as np
+from numpy import random 
 
-arr = np.array([1,2,3])
+arr = np.array([151,160,170,180])
 print("Array with Rank 1 : \n",arr)
 
+print(arr[0])
+x=list(arr)
+print("x is of type: ", type(x)) 
+
+a = np.array([[1,2,3],[0,1,4]])
+b = np.zeros((2,3), dtype=np.int16)
+c = np.ones((2,3), dtype=np.int16)
+
+print(a)
+print(b)
+print(c)
+d = a + b + c
+print(d)
+print (d[1,2] )
+
+
+K = random.randint(100) 
+print(K)
+""" 
 arr2 = np.array([9,11,13])
 print("Array with Rank 1 : \n",arr)
 
@@ -27,3 +47,5 @@ arr12 = np.array([[3,5],[50,60]],dtype= np.float64)
 
 sum = np.add(arr11,arr12)
 print("sum of two arrays :",sum)
+
+ """
