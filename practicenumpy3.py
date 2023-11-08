@@ -19,11 +19,11 @@ print("Size of array: ", arr.size)
 # Printing type of elements in array 
 print("Array stores elements of type: ", arr.dtype) 
 """ 
-Array is of type:  <class 'numpy.ndarray'>
-No. of dimensions:  2
-Shape of array:  (2, 3)
-Size of array:  6
-Array stores elements of type:  int64
+Array is of type:  <class 'numpy.ndarray'>           /  type(arr)
+No. of dimensions:  2								/ arr.ndim
+Shape of array:  (2, 3)								/ arr.shape
+Size of array:  6									/ arr.size
+Array stores elements of type:  int64				/ arr.dtype
  """
 
 # Creating array from list with type float 
